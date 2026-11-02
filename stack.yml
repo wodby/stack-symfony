@@ -1,0 +1,45 @@
+name: symfony
+icon: symfony
+title: Symfony
+
+services:
+- name: php
+  title: PHP
+  service: symfony-php
+  required: true
+  links:
+  - name: db
+    service: postgres
+  - name: sendmail
+    service: mailpit
+
+- name: nginx
+  title: Nginx
+  service: php-nginx
+  required: true
+  links:
+  - name: backend
+    service: php
+
+# Doctrine and the post-deployment migrations need the database.
+- name: postgres
+  title: PostgreSQL
+  service: postgres
+  required: true
+  volumes:
+  - name: data
+    size: 20
+
+- name: mailpit
+  title: Mailpit
+  service: mailpit
+
+- name: opensmtpd
+  disabled: true
+  title: OpenSMTPD
+  service: opensmtpd
+
+- name: cloud-postgres
+  title: Cloud PostgreSQL
+  service: cloud-postgres
+  disabled: true
