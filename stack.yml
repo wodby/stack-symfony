@@ -2,6 +2,7 @@ name: symfony
 icon: symfony
 docs: https://wodby.com/docs/2.0/stacks/catalog/symfony/
 title: Symfony
+category: frameworks
 
 services:
 - name: php
