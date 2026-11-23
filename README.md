@@ -9,7 +9,9 @@ composition for Symfony.
 
 ## Stack contract
 
+- [Symfony stack on Wodby](https://wodby.com/stacks/symfony)
 - [Browse Wodby application stacks](https://wodby.com/stacks)
+- [Symfony stack guide](https://wodby.com/docs/2.0/stacks/catalog/symfony/)
 - [Wodby stack documentation](https://wodby.com/docs/2.0/stacks/)
 - [Stack manifest reference](https://wodby.com/docs/2.0/stacks/template/)
 
@@ -28,17 +30,19 @@ start with Wodby CI build configuration:
 - [Mailpit service](https://github.com/wodby/service-mailpit)
 - [OpenSMTPD service](https://github.com/wodby/service-opensmtpd)
 - [Cloud PostgreSQL service](https://github.com/wodby/service-cloud-postgres)
+- [OpenTelemetry Collector service](https://github.com/wodby/service-opentelemetry-collector)
 
 ## What's included
 
 | Component / service | Default configuration |
 | --- | --- |
-| PHP<br>`php` | required; enabled by default; links: `db` → `postgres`, `sendmail` → `mailpit` |
+| PHP<br>`php` | required; enabled by default; links: `db` → `postgres`, `sendmail` → `mailpit`, `otel` → `otel-collector` |
 | Nginx<br>`nginx` | required; enabled by default; links: `backend` → `php` |
 | PostgreSQL<br>`postgres` | required; enabled by default; volumes: `data` 20 GB |
 | Mailpit<br>`mailpit` | optional; enabled by default |
 | OpenSMTPD<br>`opensmtpd` | optional; disabled by default |
 | Cloud PostgreSQL<br>`cloud-postgres` | optional; disabled by default |
+| OpenTelemetry Collector<br>`otel-collector` | optional; disabled by default |
 
 Enabled optional services are selected by default but can be excluded when an
 app is created. Disabled optional services are available but not selected by
